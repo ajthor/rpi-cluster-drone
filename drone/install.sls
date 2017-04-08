@@ -6,7 +6,7 @@
 
 ~/drone/docker-compose.yml:
   file.managed:
-    - source: salt://drone/drone/docker-compose.yml
+    - source: salt://drone/docker-compose.yml
     - makedirs: True
     - template: jinja
     - defaults:
