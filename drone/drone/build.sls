@@ -3,7 +3,7 @@
 # Add the Dockerfile.
 {{ tmpdir }}/Dockerfile:
   file.managed:
-    - source: salt://drone/Dockerfile
+    - source: salt://drone/drone/Dockerfile
     - makedirs: True
 
 # Download the drone arm binary.
