@@ -16,7 +16,7 @@
 
 /srv/pillar/top.sls:
   file.append:
-    - source: salt://pillar/docker.tmpl
+    - source: salt://pillar/drone.tmpl
     - template: jinja
     - defaults:
         # NOTE: Need extra spaces here to make this work. Add an extra tab for

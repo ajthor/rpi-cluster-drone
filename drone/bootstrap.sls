@@ -11,10 +11,4 @@ configure-pillar:
 install-drone:
   salt.state:
     - sls: drone.install
-    - tgt: '*'
-
-# Configure drone.
-configure-drone:
-  salt.state:
-    - sls: salt.configure
-    - tgt: '*'
+    - tgt: 'rpi-master'
