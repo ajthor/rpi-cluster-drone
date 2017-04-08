@@ -11,3 +11,9 @@
     - template: jinja
     - defaults:
       secret: {{ secret }}
+
+# Install drone plugins.
+install-plugins:
+  salt.state:
+    - sls: drone.plugins
+    - tgt: 'rpi-master'
