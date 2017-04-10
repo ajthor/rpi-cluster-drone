@@ -11,6 +11,7 @@
   file.managed:
     - source: http://downloads.drone.io/release/linux/arm/drone.tar.gz
     - source_hash: http://downloads.drone.io/release/linux/arm/drone.sha256
+    - makedirs: True
 
 # Build the image.
 rpi-cluster/drone:
@@ -18,4 +19,4 @@ rpi-cluster/drone:
     - build: {{ tmpdir }}
     - onchanges:
       - file: {{ tmpdir }}/Dockerfile
-      - file: {{ tmpdir }}/drone
+      - file: {{ tmpdir }}/release/drone

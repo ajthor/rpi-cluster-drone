@@ -10,6 +10,7 @@
     - makedirs: True
     - template: jinja
     - defaults:
+      master_hostname: {{ master_hostname }}
       secret: {{ secret }}
 
 # Install drone plugins.
