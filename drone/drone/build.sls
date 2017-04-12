@@ -12,6 +12,7 @@
     - source: http://downloads.drone.io/release/linux/arm/drone.tar.gz
     - source_hash: http://downloads.drone.io/release/linux/arm/drone.sha256
     - makedirs: True
+    - mode: 755
 
 # Build the image.
 rpi-cluster/drone:

@@ -4,6 +4,6 @@
 
 drone-plugin-{{ plugin }}:
   dockerng.image_present:
-    - name: {{ plugin['tag'] }}
+    - name: {{ plugin.tag }}
 
 {%- endfor %}

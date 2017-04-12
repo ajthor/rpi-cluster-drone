@@ -5,7 +5,7 @@
 {% set secret = salt['pillar.get']('drone:secret') %}
 {% set installation_dir = salt['pillar.get']('drone:installation_dir') %}
 
-{{ installation_dir }}/drone/docker-compose.yml:
+{{ installation_dir }}/docker-compose.yml:
   file.managed:
     - source: salt://drone/docker-compose.yml
     - makedirs: True

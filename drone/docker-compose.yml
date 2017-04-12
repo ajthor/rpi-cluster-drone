@@ -1,24 +1,27 @@
-version: '2'
+version: '3'
 
 services:
   drone-server:
     image: rpi-cluster/drone
+    container_name: drone-server
     ports:
-      - 80:8000
-    volumes:
-      - ./drone:/var/lib/drone/
-    restart: always
+      - "80:8000"
     environment:
       - DRONE_OPEN=true
       - DRONE_SECRET={{ secret }}
+    volumes:
+      - ./drone:/var/lib/drone/
+    restart: always
 
   drone-agent:
     image: rpi-cluster/drone
-    command: agent
-    restart: always
-    depends_on: [ drone-server ]
+    container_name: drone-agent
+    depends_on:
+      - drone-server
+    environment:
+      - DRONE_SERVER=http://drone-server:8000
+      - DRONE_SECRET={{ secret }}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - DRONE_SERVER=ws://{{ master_hostname }}:8000/ws/broker
-      - DRONE_SECRET={{ secret }}
+    restart: always
+    command: agent
