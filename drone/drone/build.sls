@@ -6,13 +6,11 @@
     - source: salt://drone/drone/Dockerfile
     - makedirs: True
 
-# Download the drone arm binary.
-{{ tmpdir }}/release/drone:
-  file.managed:
-    - source: http://downloads.drone.io/release/linux/arm/drone.tar.gz
-    - source_hash: http://downloads.drone.io/release/linux/arm/drone.sha256
-    - makedirs: True
-    - mode: 755
+# Create drone binary.
+create-binary:
+  salt.state:
+    - sls: drone.builder.build
+    - tgt: 'rpi-master'
 
 # Build the image.
 rpi-cluster/drone:

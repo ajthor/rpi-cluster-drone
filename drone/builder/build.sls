@@ -31,6 +31,10 @@ create-builder-container:
     - require:
       - dockerng: drone-builder
 
+/tmp/drone/release:
+  file.directory:
+    - makedirs: True 
+
 copy-binary:
   cmd.run:
     - name: docker cp builder:/go/src/github.com/drone/drone/release/drone /tmp/drone/release/drone
