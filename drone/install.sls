@@ -15,6 +15,18 @@
       secret: {{ secret }}
 
 # Install drone plugins.
+create-binary:
+  salt.state:
+    - sls: drone.builder.build
+    - tgt: 'rpi-master'
+
+# Install drone plugins.
+install-drone:
+  salt.state:
+    - sls: drone.drone.build
+    - tgt: 'rpi-master'
+
+# Install drone plugins.
 install-plugins:
   salt.state:
     - sls: drone.plugins
